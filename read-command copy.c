@@ -10,6 +10,18 @@
 
 /* FIXME: Define the type 'struct command_stream' here.  This should
    complete the incomplete type declaration in command.h.  */
+struct commandNode {
+  struct command* command;
+  struct command* next;
+};
+
+typedef struct command_stream{
+  struct commandNode* head;
+  struct commandNode* tail;
+  struct commandNode* cursor;
+}command_stream;
+
+
 
 command_stream_t
 make_command_stream (int (*get_next_byte) (void *),
